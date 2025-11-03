@@ -1,10 +1,10 @@
 DataOmitRow <- Ginidata[c(-1, -2, -3, -20), ]
 # omit the rows 1, 2, 3 and 20 from original data
 
-CleanDataNA <- na.omit(dataomitrow)
+CleanDataNA <- na.omit(DataOmitRow)
 # omit all the NA rows
 
-RenameData <- setNames(cleandatana, c("Bundesland", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", 
+RenameData <- setNames(CleanDataNA, c("Bundesland", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", 
                       "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023"))
 # rename all the columns
 

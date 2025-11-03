@@ -2,4 +2,13 @@ Here you can store any preprocessing or data munging code for your project. For 
 
 
 packages:
-ggplot2
+install.packages("ProjectTemplate")
+library(ProjectTemplate)
+install.packages("ggplot2")
+library(ggplot2)
+
+
+
+process:
+setwd: 是否需要运行这个Projekt的人setwd到Praktikum这个文件夹才能运行load.project
+load.project

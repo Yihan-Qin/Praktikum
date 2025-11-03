@@ -7,8 +7,8 @@ ggplot(EndData, aes(x = factor(Bundesland, levels = c("Baden-Wuerttemberg", "Bay
                     y = `2023`, group = 1)) +
   geom_line() +
   geom_point() +
-  geom_point(data = subData1, aes(x = Bundesland, y = `2023`), color = "red") +
-  geom_point(data = subData2, aes(x = Bundesland, y = `2023`), color = "blue") +
+  geom_point(data = subData3, aes(x = Bundesland, y = `2023`), color = "red") +
+  geom_point(data = subData4, aes(x = Bundesland, y = `2023`), color = "blue") +
   scale_y_continuous(breaks = seq(0.25, 0.32, by = 0.01)) +
   labs(
     x = "Bundeslaender in Deutschland",

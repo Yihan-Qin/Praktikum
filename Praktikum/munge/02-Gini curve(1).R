@@ -1,13 +1,24 @@
-install.packages("ggplot2")
-library(ggplot2)
-
-
 EndData <- as.data.frame(EndData)
 # cleaned dataset for original dataset
 subData1 <- subset(EndData, Bundesland %in% c("Berlin", "Hamburg", "Hessen"))
 # dataset for Bundeslaender with the highest Gini coefficient in 2023
 subData2 <- subset(EndData, Bundesland %in% c("Thueringen", "Sachsen"))
 # dataset for Bundeslaender with the lowest Gini coefficient in 2023
+subData3 <- subset(EndData, Bundesland %in% c("Baden-Wuerttemberg", "Bayern", "Saarland",
+                                             "Rheinland-Pfalz", "Hessen", "Nordrhein-Westfalen",
+                                               "Niedersachsen", "Bremen", "Hamburg",
+                                               "Schleswig-Holstein", "Sachsen"))
+subData4 <- subset(EndData, Bundesland %in% c("Thueringen", "Sachsen",
+                                              "Sachsen-Anhalt", "Berlin", "Brandenburg", 
+                                              "Mecklenburg-Vorpommern"))
+
+
+
+
+
+
+
+
 
 
 

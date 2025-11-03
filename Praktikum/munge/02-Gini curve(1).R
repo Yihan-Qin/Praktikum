@@ -41,20 +41,6 @@ median(EndData$`2023`)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Jetzt vergleiche ich die wirtschaftliche Ungleichheit zwischen verschiedenen Bundeslaendern
 # in Deutschland im Jahr 2023.
 

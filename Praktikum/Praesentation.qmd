@@ -1,0 +1,148 @@
+---
+title: "Praesentation"
+format: 
+  revealjs:
+    css: style.css
+editor: visual
+---
+
+```{r setup, include=FALSE}
+Ginidata <- read.csv("data/Ginidata.csv")
+library(ggplot2)
+source("munge/01-cleandata.R")
+source("munge/02-Gini curve(1).R")
+```
+
+## Frage 2:
+
+```{r fig.width=7, fig.height=4, dpi=300, echo=FALSE, fig.align='center', message=FALSE}
+ggplot(EndData, aes(x = Bundesland, y = `2023`, group = 1)) +
+       geom_point() +
+       scale_y_continuous(limits = c(0, 1)) +
+       labs(
+         x = "Bundeslaender in Deutschland",
+         y = "Gini-Koeffizient im Jahr 2023"
+       ) +
+       theme_bw() +
+       theme(axis.text.x = element_text(angle = 75, vjust = 0.9, hjust = 0.9))
+```
+
+
+<div style="position: absolute; bottom: 30px; right: 40px; font-size: 14px;">
+Gini-Wert                     Bedeutung<br>
+0.0 bis 0.2                   sehr geringe Ungleichheit<br>
+0.2 bis 0.29                  niedrige Ungleichheit<br>
+0.3 bis 0.39                  mittlere Ungleichheit<br>
+0.4 bis 0.49                  hohe Ungleichheit<br>
+groesser als 0.5              sehr hohe Ungleichheit<br>
+</div>
+
+
+::: {.fragment}
+### Statistische Approach:
+
+Varianz
+
+```{r, echo=FALSE}
+var(EndData$`2023`)
+```
+:::
+
+
+
+
+
+---
+
+
+
+
+```{r echo=FALSE, fig.align='center', fig.height=4, fig.width=7, dpi=300, message=FALSE}
+ggplot(EndData, aes(x = factor(Bundesland, levels = c("Thueringen", "Sachsen", "Sachsen-Anhalt", "Mecklenburg-Vorpommern", 
+                                                      "Brandenburg", "Baden-Wuerttemberg", "Niedersachsen", "Saarland",
+                                                      "Rheinland-Pfalz", "Bayern", "Schleswig-Holstein", "Bremen",
+                                                      "Nordrhein-Westfalen", "Hessen", "Hamburg", "Berlin")),
+                    y = `2023`, group = 1)) +
+  geom_point() +
+  geom_point(data = subData1, aes(x = Bundesland, y = `2023`), color = "red") +
+  geom_point(data = subData2, aes(x = Bundesland, y = `2023`), color = "blue") +
+  scale_y_continuous(breaks = seq(0.25, 0.32, by = 0.01)) +
+  labs(
+    x = "Bundeslaender in Deutschland",
+    y = "Gini-Koeffizient im Jahr 2023"
+  ) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 75, vjust = 0.9, hjust = 0.9))
+```
+
+<div style="position: absolute; bottom: 30px; right: 40px; font-size: 14px;">
+Gini-Wert                     Bedeutung<br>
+0.0 bis 0.2                   sehr geringe Ungleichheit<br>
+0.2 bis 0.29                  niedrige Ungleichheit<br>
+0.3 bis 0.39                  mittlere Ungleichheit<br>
+0.4 bis 0.49                  hohe Ungleichheit<br>
+groesser als 0.5              sehr hohe Ungleichheit<br>
+</div>
+
+
+
+::: {.fragment}
+### Statistische Approach:
+
+Erwartungswert und Median:
+
+```{r, echo=FALSE}
+c(weighted.mean(c(0.25, 0.26, 0.27, 0.29, 0.30, 0.31, 0.32), c(2, 2, 1, 4, 2, 2, 3)), median(EndData$`2023`))
+```
+:::
+
+
+
+
+---
+
+
+
+
+
+
+
+```{r}
+ggplot(EndData, aes(x = factor(Bundesland, levels = c("Baden-Wuerttemberg", "Saarland", "Niedersachsen",
+                                                      "Rheinland-Pfalz", "Bayern", "Schleswig-Holstein", 
+                                                      "Nordrhein-Westfalen", "Bremen", "Hamburg", "Hessen", 
+                                                      "Thueringen", "Sachsen",
+                                                      "Sachsen-Anhalt", "Mecklenburg-Vorpommern", "Brandenburg", "Berlin")),
+                    y = `2023`, group = 1)) +
+  geom_point() +
+  geom_point(data = subData3, aes(x = Bundesland, y = `2023`), color = "red") +
+  geom_point(data = subData4, aes(x = Bundesland, y = `2023`), color = "blue") +
+  scale_y_continuous(breaks = seq(0.25, 0.32, by = 0.01)) +
+  labs(
+    x = "Bundeslaender in Deutschland",
+    y = "Gini-Koeffizient im Jahr 2023"
+  ) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 75, vjust = 0.9, hjust = 0.9))
+```
+
+
+<div style="position: absolute; bottom: 30px; right: 40px; font-size: 14px;">
+Gini-Wert                     Bedeutung<br>
+0.0 bis 0.2                   sehr geringe Ungleichheit<br>
+0.2 bis 0.29                  niedrige Ungleichheit<br>
+0.3 bis 0.39                  mittlere Ungleichheit<br>
+0.4 bis 0.49                  hohe Ungleichheit<br>
+groesser als 0.5              sehr hohe Ungleichheit<br>
+</div>
+
+
+::: {.fragment}
+### Statistische Approach:
+
+Median von Westdeutschland und Median von Ostdeutschland:
+```{r}
+c(median(c(0.29, 0.29, 0.29, 0.29, 0.3, 0.3, 0.31, 0.31, 0.32, 0.32)),
+median(c(0.25, 0.25, 0.26, 0.26, 0.27, 0.32)))
+```
+:::

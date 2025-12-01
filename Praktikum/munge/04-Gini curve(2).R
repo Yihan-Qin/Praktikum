@@ -1,5 +1,8 @@
-ggplot(EndData, aes(x = Bundesland, y = `2023`, group = 1)) +
-  geom_line() +
+ggplot(EndData, aes(x = factor(Bundesland, levels = c("Thueringen", "Sachsen", "Sachsen-Anhalt", "Mecklenburg-Vorpommern", 
+                                                      "Brandenburg", "Baden-Wuerttemberg", "Niedersachsen", "Saarland",
+                                                      "Rheinland-Pfalz", "Bayern", "Schleswig-Holstein", "Bremen",
+                                                      "Nordrhein-Westfalen", "Hessen", "Hamburg", "Berlin")),
+                    y = `2023`, group = 1)) +
   geom_point() +
   geom_point(data = subData1, aes(x = Bundesland, y = `2023`), color = "red") +
   geom_point(data = subData2, aes(x = Bundesland, y = `2023`), color = "blue") +

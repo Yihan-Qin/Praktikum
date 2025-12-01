@@ -26,8 +26,8 @@ subData4 <- subset(EndData, Bundesland %in% c("Thueringen", "Sachsen",
 
 
 
+
 ggplot(EndData, aes(x = Bundesland, y = `2023`, group = 1)) +
-       geom_line() +
        geom_point() +
        scale_y_continuous(limits = c(0, 1)) +
        labs(
@@ -67,7 +67,7 @@ ggplot(EndData, aes(x = Bundesland, y = `2023`, group = 1)) +
 
 
 # Ich habe die Gini-Koeffizienten, was ein Kriterium zur Ungleichheit ist, auf der Website
-# gesucht und diese Koeffizienten als Liniendiagramm gezeigt. Wobei die X-Achse ist Namen der
+# gesucht und diese Koeffizienten als Punktdiagramm gezeigt. Wobei die X-Achse ist Namen der
 # Bundeslaendern und die y-Achse ist Gini-Koeffizienten verschiedener Bundeslaendern.
 
 
@@ -78,7 +78,7 @@ ggplot(EndData, aes(x = Bundesland, y = `2023`, group = 1)) +
 
 # Dazu koennen wir sehen, dass die Kurve nicht stark schwankt. Und dann habe ich auch die Varianz
 # dafuer gerechnet und entdecke, dass die Varianz gleich 0.00060625 sehr klein ist. Das heisst,
-# dass die wirtschaftliche Ungleichheit zwischen verschiedenen Bundeslaendern sind aehnlich.
+# dass die wirtschaftliche Ungleichheit zwischen verschiedenen Bundeslaendern sind ungefaehr aehnlich.
 
 
 
@@ -90,11 +90,13 @@ ggplot(EndData, aes(x = Bundesland, y = `2023`, group = 1)) +
 # 1.Der Gini-Koeffizient schwankt sich zwischen 0.25 bis 0.32. Das heisst, dass die
 #   wirtschaftliche Unglechheit fuer alle Bundeslaender in einem niedrigen bis mittleren Niveau
 #   ist.
+
 # 2.Der groessteste Gini-Koeffizienz 0.32 haben Staedten Berlin, Hamburg und Hessen, waehrend
 #   Staedte Sachsen und Thueringen haben den kleinesten Gini-Koeffizient 0.25. Die Differenz
 #   betraegt 0.07. Das bedeutet, dass die Unterschiede in der wirtschaftlichen Ungleichheit
 #   zwischen Bundeslaender mit grossten und kleinsten Gini-Koeffizient sind relativ gross.
-# 3.Der Erwartungswert, naehmlich der gewichtete Mittelwert, dafuer betraegt 0.289375,
+
+# 3.Der Erwartungswert dafuer, naehmlich der gewichtete Mittelwert betraegt 0.289375,
 #   entspricht ungefaehr 0.29, was ist auch gleich der Modus und die Median. Wir koennen
 #   intepretieren, dass die meisten Bundeslaendern haben niedrige Ungleichheit.
 
@@ -110,9 +112,18 @@ ggplot(EndData, aes(x = Bundesland, y = `2023`, group = 1)) +
 
 # Mit einem anderen Bild, wobei ich die Bundeslaender auf der x-Achse von links nach rechts im
 # Westen und Osten des geografischen Standorts darstelle, koennen wir klar sehen, dass die
-# Bundeslaender im Westen groessere Gini-Koeffizienten als Bundeslaender im Osten haben. Und 
-# Berlin hat den groessten Gini-Koeffizient, naehmlich die wirtschaftliche Ungleichheit im Westen
-# ist groesser als im Osten und  Berlin ist das wirtschaftlich ungleichste Bundesland im Osten.
+# Bundeslaender im Westen groessere Gini-Koeffizienten als Bundeslaender im Osten haben. 
+# Ich habe die Medien vom Gini-Koeffizient in Westdeutschland gerechnet. Das betraegt 0.3.
+# Ich habe auch die Medien in Ostdeutschland gerechnet und das betraegt 0.26.
+# Ausserdem ist der kleinste Gini-Koeffizient von Westdeutschland gleich 0.29, wahrend der groesste Gini-Koeffizient 
+# in Ostdeutschland ausser des Ausreissers Berlin gleich 0.27 ist.
+# Alle Bundeslaender in Westdeutschland haben Gini-Koeffizienten groesser als den Erwartungswert. Und Bundeslaender in Ostdeutschland 
+# ausser Berlin haben Gini-Koeffizienten kleiner als den Erwartungswert.
+# Wir koennen deshalb interpretieren, dass Westdeutschland durchschnittlich groesser wirtschaftlich unglich ist. 
+
+# Berlin hat den groessten Gini-Koeffizient in Ostdeutschland, ausserdem hat Berlin auch den groessten Gini-Koeffizient in ganz 
+# Deutschland. So macht Berlin einen grossen Unterschied von der wirtschaftlichen Ungleichheit anderen Bundeslaendern 
+# in Ostdeutschland.
 
 
 
